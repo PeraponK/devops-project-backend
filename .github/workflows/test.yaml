@@ -33,7 +33,7 @@ jobs:
       #   uses: 
 
       - name: build image
-        run: docker build ghcr.io/${{ github.repository }}/api:${{ github.sha }} .
+        run: docker build -t ghcr.io/${{ github.repository }}/api:${{ github.sha }} .
 
       - name: push image to ghcr
         run: docker push ghcr.io/${{ github.repository }}/api:${{ github.sha }}
