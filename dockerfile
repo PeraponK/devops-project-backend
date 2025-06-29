@@ -4,11 +4,17 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm ci
 
-COPY index.js ./
+# COPY . .
+
+COPY src ./src
+
+COPY tests ./tests
+
+COPY server.js ./
 
 EXPOSE 8080
 
-CMD ["node","index.js"]
+CMD ["node", "server.js"]
 
