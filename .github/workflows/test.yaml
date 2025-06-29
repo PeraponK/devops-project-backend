@@ -35,10 +35,10 @@ jobs:
         run: echo "IMAGE_NAME=${{ github.repository }}" | tr '[:upper:]' '[:lower:]'
 
       - name: build image
-        run: docker build -t IMAGE_NAME:${{ github.sha }} .
+        run: docker build -t $IMAGE_NAME:${{ github.sha }} .
 
       - name: push image to ghcr
-        run: docker push IMAGE_NAME:${{ github.sha }}
+        run: docker push $IMAGE_NAME:${{ github.sha }}
       
     #  ${{ github.repository }}
     #  ${{ github.sha }}
