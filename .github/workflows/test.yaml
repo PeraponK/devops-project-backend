@@ -32,13 +32,13 @@ jobs:
       # - name: github token
       #   uses: 
       - name: image name
-        run: echo "IMAGE_NAME=${{ github.repository }}" | tr '[:upper:]' '[:lower:]'":${{ github.sha }}"
+        uses: echo "IMAGE_NAME=${{ github.repository }}" | tr '[:upper:]' '[:lower:]'
 
       - name: build image
-        run: docker build -t IMAGE_NAME .
+        run: docker build -t IMAGE_NAME:${{ github.sha }} .
 
       - name: push image to ghcr
-        run: docker push IMAGE_NAME
+        run: docker push IMAGE_NAME:${{ github.sha }}
       
     #  ${{ github.repository }}
     #  ${{ github.sha }}
