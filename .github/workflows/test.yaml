@@ -32,7 +32,7 @@ jobs:
       # - name: github token
       #   uses: 
       - name: image name
-        uses: echo "IMAGE_NAME=${{ github.repository }}" | tr '[:upper:]' '[:lower:]':${{ github.sha }}
+        run: echo "IMAGE_NAME=${{ github.repository }}" | tr '[:upper:]' '[:lower:]':${{ github.sha }}
 
       - name: build image
         run: docker build -t IMAGE_NAME .
